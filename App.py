@@ -8,8 +8,8 @@ from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFacto
 from gensim.models import CoherenceModel
 from collections import Counter
 
-st.set_page_config(page_title="TM-BETA", 
-                   page_icon=":robot_face:",
+st.set_page_config(page_title="TOMOE", 
+                   page_icon="🔺🔻",
                    layout="wide",
                    initial_sidebar_state="expanded"
                    )
@@ -21,22 +21,28 @@ def p_title(title):
 #SIDEBAR
 ########
 
-nav = st.sidebar.radio('',['Go to homepage', 'Topic Modelling', 'About'])
+nav = st.sidebar.radio('',['Home', 'Topic Modelling'])
 st.sidebar.write('')
 st.sidebar.write('')
 st.sidebar.write('')
 st.sidebar.write('')
 st.sidebar.write('')
 
-if nav == 'Go to homepage':
-    st.markdown("<h1 style='text-align: center; color: white; font-size:28px;'>Helloo Welcome to TM-BETA!</h1>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; font-size:56px;'<p>&#129302;</p></h3>", unsafe_allow_html=True)
-    st.markdown("<h3 style='text-align: center; color: grey; font-size:20px;'>Implementation of Topic Modelling</h3>", unsafe_allow_html=True)
+if nav == 'Home':
+    st.markdown("<h1 style='text-align: center; color: white; font-size:28px;'>Hello Welcome to TOMOE</h1>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; font-size:56px;'<p>🔺🔻</p></h3>", unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: grey; font-size:20px;'>Topic Modelling Web Application</h3>", unsafe_allow_html=True)
 
     st.markdown("<h3 style='text-align: left; color:#F63366; font-size:18px;'><b>What is this App about?<b></h3>", unsafe_allow_html=True)
-    st.write("this app is build for my satisfaction")
+    st.write("This is an application created using the topic modeling method which can help you find the topic of the entered document more quickly")
     st.markdown("<h3 style='text-align: left; color:#F63366; font-size:18px;'><b>Who is this App for?<b></h3>", unsafe_allow_html=True)
     st.write("Anyone can use this App completely for free! If you like it :heart:, show your support by sharing :+1: ")
+    st.markdown("<h3 style='text-align: left; color:#F63366; font-size:18px;'><b>How to Use<b></h3>", unsafe_allow_html=True)
+    st.write("1. Select Page Topic Modelling, Copy Your text and Paste in Text Box :+1: ")
+    st.write("2. Copy Your text and Paste on the Text Box :+1: ")
+    st.write("3. You can set num of cluster, and num of words that you want to appear :+1: ")
+    st.write("4. Add the Stopword list, by writing words that have no effect on the document and you want to remove :+1: ")
+    st.write("5. Click Analyze text button to show the result :+1: ")
 
 if nav == 'Topic Modelling':
     st.markdown("<h1 style='text-align: center; color: white; font-size:28px;'>Topic Modelling</h1>", unsafe_allow_html=True)
@@ -112,6 +118,3 @@ if nav == 'Topic Modelling':
             if topics:
                 topic_words = [word for topic in topics for word in topic[1]]
                 generate_wordcloud([topic_words])
-
-if nav == 'About':
-    st.markdown("<h1 style='text-align: center; color: white; font-size:28px;'>this is about</h1>", unsafe_allow_html=True)
